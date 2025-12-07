@@ -18,8 +18,8 @@
     body {
         margin: 0;
         font-family: Arial;
-        background: #111;
-        color: white;
+        background: white;   /* Background WHITE */
+        color: black;        /* Text BLACK */
     }
 
     /* Top bar */
@@ -67,8 +67,17 @@
 
     /* Main content */
     .content {
-        padding: 20px;
+        padding: 50px 20px;
         text-align: center;
+    }
+
+    .content h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 20px;
     }
 
 </style>
@@ -94,10 +103,10 @@ function closeMenu() {
 
 <!-- Sidebar -->
 <div id="mysidebar" class="sidebar">
-    <a href="javascript:void(0)" onclick="closeMenu()">❌ Close</a>
-    <a href="about.html">About</a>
-    <a href="downloads.html">Download Songs</a>
     <a href="mods.html">Mod APKs</a>
+    <a href="downloads.html">Download Songs</a>
+    <a href="about.html">About</a>
+    <a href="javascript:void(0)" onclick="closeMenu()">❌ Close</a>
 </div>
 
 <!-- Main Content -->
