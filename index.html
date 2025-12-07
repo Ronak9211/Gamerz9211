@@ -12,50 +12,101 @@
 <p><!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Gamerz9211 - Official Website</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        a {
-            color: #00e1ff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .box {
-            margin: 20px auto;
-            padding: 20px;
-            width: 300px;
-            background: #1a1a1a;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Gamerz9211 - Official Website</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: #111;
+        color: white;
+    }
+
+    /* Top bar */
+    .topbar {
+        background: #1a1a1a;
+        padding: 15px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    /* Hamburger icon */
+    .menu-icon {
+        font-size: 26px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #222;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.4s;
+    }
+
+    .sidebar a {
+        padding: 15px 20px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        border-bottom: 1px solid #333;
+    }
+
+    .sidebar a:hover {
+        background: #333;
+    }
+
+    /* Main content */
+    .content {
+        padding: 20px;
+        text-align: center;
+    }
+
+</style>
+
+<script>
+function openMenu() {
+    document.getElementById("mysidebar").style.width = "250px";
+}
+
+function closeMenu() {
+    document.getElementById("mysidebar").style.width = "0";
+}
+</script>
+
 </head>
 <body>
 
-<h1>Welcome to Gamerz9211</h1>
-<p>Your ultimate zone for mods, downloads & gaming content.</p>
+<!-- Top bar -->
+<div class="topbar">
+    <span class="menu-icon" onclick="openMenu()">☰</span>
+    Gamerz9211
+</div>
 
-<div class="box">
+<!-- Sidebar -->
+<div id="mysidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="closeMenu()">❌ Close</a>
     <a href="about.html">About</a>
-</div>
-
-<div class="box">
     <a href="downloads.html">Download Songs</a>
-</div>
-
-<div class="box">
     <a href="mods.html">Mod APKs</a>
 </div>
 
-<p style="margin-top:40px;">© 2025 Gamerz9211 - All Rights Reserved</p>
+<!-- Main Content -->
+<div class="content">
+    <h1>Welcome to Gamerz9211</h1>
+    <p>Your gaming world begins here.</p>
+</div>
 
 </body>
-  </html></p>
+</html></p>
 </body>
 </html>
