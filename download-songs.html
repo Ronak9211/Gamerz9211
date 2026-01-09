@@ -3,49 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Songs</title>
+<title>Download Songs - Gamerz9211</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial;
-        background: white;
-        color: black;
-        text-align: center;
-        padding: 50px 20px;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 40px 20px;
+}
 
-    h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
 
-    p {
-        font-size: 20px;
-    }
+.song-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 10px;
+}
 
-    a {
-        display: block;
-        margin: 10px 0;
-        color: #007BFF;
-        text-decoration: none;
-        font-size: 18px;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
 </style>
 
 </head>
 <body>
 
 <h1>Download Songs</h1>
-<p>Click on the links below to download your favorite songs:</p>
 
-<a href="#">Song 1</a>
-<a href="#">Song 2</a>
-<a href="#">Song 3</a>
+<div class="song-box">
+    <h2>Song 1</h2>
+
+    <audio controls>
+        <source src="https://files.catbox.moe/ucxwn5.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+
+    <br>
+
+    <a href="https://files.catbox.moe/ucxwn5.mp3" download>
+        ⬇ Download Song
+    </a>
+</div>
 
 </body>
 </html>
