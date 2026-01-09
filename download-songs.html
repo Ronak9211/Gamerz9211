@@ -1,67 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Songs - Gamerz9211</title>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Download Songs - Gamerz9211</title>  
+  
+<style>  
+body {  
+    margin: 0;  
+    font-family: Arial, sans-serif;  
+    background: white;  
+    color: black;  
+    text-align: center;  
+    padding: 40px 20px;  
+}  
+  
+h1 {  
+    font-size: 36px;  
+    margin-bottom: 30px;  
+}  
+  
+.song-box {  
+    border: 1px solid #ddd;  
+    padding: 20px;  
+    margin: 20px auto;  
+    max-width: 400px;  
+    border-radius: 10px;  
+}  
+  
+a {  
+    display: inline-block;  
+    margin-top: 15px;  
+    text-decoration: none;  
+    background: #007BFF;  
+    color: white;  
+    padding: 10px 20px;  
+    border-radius: 5px;  
+}  
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+/* ===== Hamburger Menu CSS (ONLY ADDITION) ===== */
+.topbar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.menu-btn {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
     background: white;
+    border: 1px solid #ccc;
+    width: 180px;
+    text-align: left;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
     color: black;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 30px;
-}
-
-.song-box {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 400px;
-    border-radius: 10px;
-}
-
-a {
-    display: inline-block;
-    margin-top: 15px;
     text-decoration: none;
-    background: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-bottom: 1px solid #eee;
 }
-</style>
 
-</head>
-<body>
+.menu a:hover {
+    background: #f2f2f2;
+}
+</style>  
+  
+</head>  
+<body>  
 
-<h1>Download Songs</h1>
+<!-- ===== Hamburger Menu HTML (ONLY ADDITION) ===== -->
+<div class="topbar">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<div class="song-box">
-    <h2>Masoom_Sharma_Mashup</h2>
-
-    <audio controls>
-        <source src="https://files.catbox.moe/ucxwn5.mp3" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
-
-    <br>
-
-<a href="https://files.catbox.moe/ucxwn5.mp3" download="Masoom_Sharma_mashup_Gamerz9211.mp3">
-    click on three dots to download
-</a>
-
-            <p class="note">
-                Note: Your file will be named as <b>ucxwn5.mp3</b>
-            </p>
+    <div class="menu" id="menu">
+        <a href="mod-apk.html">MOD APK</a>
+        <a href="download-songs.html">Download Songs</a>
+        <a href="about.html">About</a>
+    </div>
 </div>
 
-</body>
+<h1>Download Songs</h1>  
+  
+<div class="song-box">  
+    <h2>Masoom_Sharma_Mashup</h2>  
+  
+    <audio controls>  
+        <source src="https://files.catbox.moe/ucxwn5.mp3" type="audio/mpeg">  
+        Your browser does not support audio.  
+    </audio>  
+  
+    <br>  
+  
+    <a href="https://files.catbox.moe/ucxwn5.mp3" download="Masoom_Sharma_mashup_Gamerz9211.mp3">  
+        click on three dots to download  
+    </a>  
+  
+    <p class="note">  
+        Note: Your file will be named as <b>ucxwn5.mp3</b>  
+    </p>  
+</div>  
+
+<!-- ===== Hamburger Menu JS (ONLY ADDITION) ===== -->
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>  
 </html>
