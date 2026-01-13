@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://ronak9211.github.io/Gamerz9211/sitemap.xml
