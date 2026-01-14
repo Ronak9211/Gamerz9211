@@ -173,43 +173,114 @@ h1{margin-top:20px}
     display:none;
     border:2px solid #ff4c4c;
     background:#ffe5e5;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MOD APKs - Gamerz9211</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#000;
+}
+
+/* Top bar */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    border-bottom:1px solid #ddd;
+}
+.menu-btn{
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* Menu */
+.menu{
+    display:none;
+    position:absolute;
+    top:60px;
+    left:20px;
+    background:#fff;
+    border:1px solid #ccc;
+    width:200px;
+}
+.menu a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:#000;
+    border-bottom:1px solid #eee;
+}
+.menu a:hover{
+    background:#f2f2f2;
+}
+
+/* Content */
+.content{
+    padding:30px 15px;
+    text-align:center;
+}
+
+/* SEARCH */
+.search-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:20px 0;
+}
+.search-box input{
+    width:65%;
+    padding:12px;
+    font-size:16px;
+}
+
+/* APK BOX */
+.apk-box{
+    border:1px solid #ccc;
     padding:20px;
-    border-radius:10px;
-    max-width:500px;
+    max-width:400px;
+    margin:20px auto;
+}
+.download-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 20px;
+    background:#007bff;
+    color:#fff;
+    text-decoration:none;
+    border-radius:5px;
+}
+.download-btn:hover{
+    background:#0056b3;
+}
+
+/* NO RESULT */
+#noResult{
+    display:none;
+    border:1px solid #ff4c4c;
+    background:#ffecec;
+    padding:20px;
+    border-radius:8px;
+    max-width:450px;
     margin:20px auto;
 }
 </style>
-</head>
-
-<body>
-
-<h1>MOD APKs</h1>
-
-<div class="search-box">
-    <span>🔍</span>
-    <input type="text" id="searchInput" placeholder="Search MOD APK..." onkeyup="searchAPK()">
-    <span onclick="voiceSearch()">🎤</span>
-</div>
-
-<div id="noResult">
-    <h3>No Result Found 😕</h3>
-    <p>APK not available right now.</p>
-    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEqLuzqL1Qb5X6pQ5EttNbaEvmgiFFEZE8MpmI4X3utc3W9Q/viewform" target="_blank">message us</a> to request it.</p>
-</div>
-
-<div class="apk-box">
-<h3>JioSaavn Premium MOD</h3>
-<p>Version: 9.10.2 | Size: 50MB</p>
-<a class="download-btn" href="https://files.catbox.moe/rlygrr.apk" download>Download</a>
-</div>
-
-<div class="apk-box">
-<h3>Traffic Rider MOD</h3>
-<p>Version: 2.0 | Size: 140MB</p>
-<a class="download-btn" href="https://files.catbox.moe/2961ru.apk" download>Download</a>
-</div>
 
 <script>
+function toggleMenu(){
+    const menu=document.getElementById("menu");
+    menu.style.display = menu.style.display==="block" ? "none" : "block";
+}
+
+/* SEARCH LOGIC */
 function searchAPK(){
     let input=document.getElementById("searchInput").value.toLowerCase();
     let boxes=document.getElementsByClassName("apk-box");
@@ -226,20 +297,80 @@ function searchAPK(){
     document.getElementById("noResult").style.display = found ? "none" : "block";
 }
 
+/* VOICE SEARCH */
 function voiceSearch(){
-    if(!('webkitSpeechRecognition'in window)){
-        alert("Voice search not supported");
+    if(!('webkitSpeechRecognition' in window)){
+        alert("Voice search not supported in this browser");
         return;
     }
-    let r=new webkitSpeechRecognition();
-    r.lang="en-IN";
-    r.start();
-    r.onresult=e=>{
+    let rec=new webkitSpeechRecognition();
+    rec.lang="en-IN";
+    rec.start();
+    rec.onresult=function(e){
         document.getElementById("searchInput").value=e.results[0][0].transcript;
         searchAPK();
     };
 }
 </script>
+</head>
 
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <h3>Gamerz9211</h3>
+</div>
+
+<!-- Menu -->
+<div class="menu" id="menu">
+    <a href="index.html">Home Page</a>
+    <a href="download-songs.html">Download Songs</a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+<h1>MOD APKs</h1>
+
+<!-- SEARCH BAR -->
+<div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Search MOD APK..." onkeyup="searchAPK()">
+    <span style="cursor:pointer" onclick="voiceSearch()">🎤</span>
+</div>
+
+<!-- NO RESULT -->
+<div id="noResult">
+    <h3>No results found</h3>
+    <p>We couldn’t find the APK you’re looking for.</p>
+    <p>You can <b>message us</b> if you want to request this APK.</p>
+</div>
+
+<!-- APK LIST -->
+<div class="apk-box">
+    <h2>Jio Saavan_Premium-Unlocked_</h2>
+    <p>Version: v9.10.2</p>
+    <p>Size: ~50MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/rlygrr.apk" download>Download MOD APK</a>
+    <p>Note: File name <b>rlygrr.apk</b></p>
+</div>
+
+<div class="apk-box">
+    <h2>Traffic_Rider_Unlocked</h2>
+    <p>Version: 2.0</p>
+    <p>Size: ~140MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/2961ru.apk" download>Download MOD APK</a>
+    <p>Note: File name <b>2961ru.apk</b></p>
+</div>
+
+<div class="apk-box">
+    <h2>Subway Princess Runner MOD APK</h2>
+    <p>Version: v8.4.5</p>
+    <p>Size: ~280MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/g9phyu.apk" download>Download MOD APK</a>
+    <p>Note: File name <b>g9phyu.apk</b></p>
+</div>
+
+</div>
 </body>
 </html>
