@@ -565,42 +565,167 @@ function voiceSearch(){
             }
         }
     }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MOD APKs - Gamerz9211</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* SEARCH LOGIC */
-    function searchAPK() {
-        let input = document.getElementById("searchInput").value.toLowerCase().trim();
-        let boxes = document.getElementsByClassName("apk-box");
-        let found = false;
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f9f9f9;
+    color:#333;
+}
 
-        for (let i = 0; i < boxes.length; i++) {
-            let title = boxes[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
-            if (title.includes(input)) {
-                boxes[i].style.display = "block";
-                found = true;
-            } else {
-                boxes[i].style.display = "none";
-            }
+/* TOP BAR */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.menu-btn{
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* MENU */
+.menu{
+    display:none;
+    position:fixed;
+    top:55px;
+    left:0;
+    width:220px;
+    background:#fff;
+    border-right:1px solid #ccc;
+    box-shadow:2px 2px 10px rgba(0,0,0,0.1);
+}
+.menu a{
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:#333;
+    border-bottom:1px solid #eee;
+    font-weight:bold;
+}
+.menu a:hover{
+    background:#007bff;
+    color:#fff;
+}
+
+/* CONTENT */
+.content{
+    padding:20px;
+    text-align:center;
+}
+
+/* SEARCH BAR */
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width:500px;
+    margin:20px auto;
+    background:#fff;
+    padding:10px 15px;
+    border-radius:30px;
+    border:1px solid #ccc;
+}
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+.search-box span{
+    cursor:pointer;
+    font-size:20px;
+}
+
+/* APK BOX */
+.apk-box{
+    background:#fff;
+    border:1px solid #eee;
+    padding:20px;
+    max-width:420px;
+    margin:20px auto;
+    border-radius:12px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.05);
+}
+.download-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#007bff;
+    color:#fff;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:bold;
+}
+.download-btn:hover{
+    background:#0056b3;
+}
+
+/* NO RESULT */
+#noResult{
+    display:none;
+    max-width:450px;
+    margin:20px auto;
+    padding:20px;
+    background:#ffecec;
+    border:1px solid #ff4c4c;
+    border-radius:10px;
+}
+</style>
+
+<script>
+function toggleMenu(){
+    const menu=document.getElementById("menu");
+    menu.style.display = menu.style.display==="block" ? "none" : "block";
+}
+
+/* SEARCH */
+function searchAPK(){
+    let input=document.getElementById("searchInput").value.toLowerCase().trim();
+    let boxes=document.getElementsByClassName("apk-box");
+    let found=false;
+
+    for(let i=0;i<boxes.length;i++){
+        let title=boxes[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+        if(title.includes(input)){
+            boxes[i].style.display="block";
+            found=true;
+        }else{
+            boxes[i].style.display="none";
         }
-        document.getElementById("noResult").style.display = found ? "none" : "block";
     }
+    document.getElementById("noResult").style.display = found ? "none" : "block";
+}
 
-    /* VOICE SEARCH */
-    function voiceSearch() {
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SpeechRecognition) {
-            alert("Voice search is not supported in this browser. Please use Chrome.");
-            return;
-        }
-        const recognition = new SpeechRecognition();
-        recognition.lang = "en-IN";
-        recognition.start();
-
-        recognition.onresult = function(e) {
-            let result = e.results[0][0].transcript;
-            document.getElementById("searchInput").value = result;
-            searchAPK();
-        };
+/* VOICE SEARCH */
+function voiceSearch(){
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SpeechRecognition){
+        alert("Voice search supported only in Chrome.");
+        return;
     }
+    const rec = new SpeechRecognition();
+    rec.lang="en-IN";
+    rec.start();
+
+    rec.onresult=function(e){
+        document.getElementById("searchInput").value=e.results[0][0].transcript;
+        searchAPK();
+    }
+}
 </script>
 </head>
 
@@ -608,54 +733,52 @@ function voiceSearch(){
 
 <div class="topbar">
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div style="font-weight: bold; font-size: 20px;">Gamerz9211</div>
-    <div style="width: 26px;"></div>
+    <div style="font-weight:bold;font-size:20px;">Gamerz9211</div>
+    <div style="width:26px;"></div>
 </div>
 
 <div class="menu" id="menu">
-    <a href="#">🏠 Home Page</a>
-    <a href="#">🎵 Download Songs</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="download-songs.html">🎵 Download Songs</a>
 </div>
 
 <div class="content">
-    <h1>MOD APKs</h1>
+<h1>MOD APKs</h1>
 
-    <!-- SEARCH BAR -->
-    <div class="search-box">
-        <span>🔍</span>
-        <input type="text" id="searchInput" placeholder="Search MOD APK..." onkeyup="searchAPK()">
-        <span style="cursor:pointer" onclick="voiceSearch()">🎤</span>
-    </div>
-
-    <!-- NO RESULT -->
-    <div id="noResult">
-        <h3>No results found ❌</h3>
-        <p>We couldn’t find the APK you’re looking for.</p>
-        <p>You can <b>message us</b> to request this APK.</p>
-    </div>
-
-    <!-- APK LIST -->
-    <div class="apk-box">
-        <h2>Jio Saavn Premium</h2>
-        <p><b>Version:</b> v9.10.2</p>
-        <p><b>Size:</b> ~50MB</p>
-        <a class="download-btn" href="https://files.catbox.moe/rlygrr.apk">Download MOD APK</a>
-    </div>
-
-    <div class="apk-box">
-        <h2>Traffic Rider Unlocked</h2>
-        <p><b>Version:</b> 2.0</p>
-        <p><b>Size:</b> ~140MB</p>
-        <a class="download-btn" href="https://files.catbox.moe/2961ru.apk">Download MOD APK</a>
-    </div>
-
-    <div class="apk-box">
-        <h2>Subway Princess Runner</h2>
-        <p><b>Version:</b> v8.4.5</p>
-        <p><b>Size:</b> ~280MB</p>
-        <a class="download-btn" href="https://files.catbox.moe/g9phyu.apk">Download MOD APK</a>
-    </div>
+<div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Search MOD APK..." onkeyup="searchAPK()">
+    <span onclick="voiceSearch()">🎤</span>
 </div>
 
+<div id="noResult">
+    <h3>No result found ❌</h3>
+    <p>The APK you searched is not available.</p>
+    <p>You can message us if you want this APK.</p>
+</div>
+
+<!-- APK LIST -->
+<div class="apk-box">
+    <h2>Jio Saavn Premium</h2>
+    <p>Version: v9.10.2</p>
+    <p>Size: ~50MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/rlygrr.apk">Download MOD APK</a>
+</div>
+
+<div class="apk-box">
+    <h2>Traffic Rider Unlocked</h2>
+    <p>Version: 2.0</p>
+    <p>Size: ~140MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/2961ru.apk">Download MOD APK</a>
+</div>
+
+<div class="apk-box">
+    <h2>Subway Princess Runner</h2>
+    <p>Version: v8.4.5</p>
+    <p>Size: ~280MB</p>
+    <a class="download-btn" href="https://files.catbox.moe/g9phyu.apk">Download MOD APK</a>
+</div>
+
+</div>
 </body>
 </html>
