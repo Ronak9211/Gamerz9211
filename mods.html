@@ -28,6 +28,18 @@ body{
 .menu-btn{
     font-size:26px;
     cursor:pointer;
+    user-select:none;
+}
+
+/* LOGO + TITLE */
+.logo-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.yt-logo{
+    height:24px;
+    cursor:pointer;
 }
 
 /* MENU */
@@ -123,7 +135,17 @@ body{
 <script>
 function toggleMenu(){
     const menu=document.getElementById("menu");
-    menu.style.display = menu.style.display==="block" ? "none" : "block";
+    menu.style.display = (menu.style.display==="block") ? "none" : "block";
+}
+
+/* CLOSE MENU ON OUTSIDE CLICK */
+window.onclick=function(e){
+    if(!e.target.matches('.menu-btn')){
+        const menu=document.getElementById("menu");
+        if(menu.style.display==="block"){
+            menu.style.display="none";
+        }
+    }
 }
 
 /* SEARCH */
@@ -148,13 +170,12 @@ function searchAPK(){
 function voiceSearch(){
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if(!SpeechRecognition){
-        alert("Voice search only works in Chrome.");
+        alert("Voice search works only in Chrome.");
         return;
     }
-    const rec = new SpeechRecognition();
+    const rec=new SpeechRecognition();
     rec.lang="en-IN";
     rec.start();
-
     rec.onresult=function(e){
         document.getElementById("searchInput").value=e.results[0][0].transcript;
         searchAPK();
@@ -167,7 +188,7 @@ function voiceSearch(){
 
 <!-- TOP BAR -->
 <div class="topbar">
-    <div class="menu-icon" onclick="openMenu()">☰</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
     <div class="logo-title">
         <a href="https://www.youtube.com/@Gamerz9211" target="_blank">
@@ -196,39 +217,31 @@ function voiceSearch(){
 
 <div id="noResult">
     <h3>No Result Found 😕</h3>
-    <p>We couldn't find the Mod-Apk you're looking for.</p>
-    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEqLuzqL1Qb5X6pQ5EttNbaEvmgiFFEZE8MpmI4X3utc3W9Q/viewform" target="_blank">message us</a> to request this Mod-Apk.</p>
+    <p>We couldn't find the Mod APK you're looking for.</p>
+    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEqLuzqL1Qb5X6pQ5EttNbaEvmgiFFEZE8MpmI4X3utc3W9Q/viewform" target="_blank">message us</a> to request it.</p>
 </div>
-    
 
-<!-- APK LIST -->
 <div class="apk-box">
     <h2>Jio Saavn Premium</h2>
     <p>Version: v9.10.2</p>
     <p>Size: ~50MB</p>
-    <a class="download-btn" href="https://files.catbox.moe/rlygrr.apk">
-        Download MOD APK
-    </a>
+    <a class="download-btn" href="https://files.catbox.moe/rlygrr.apk">Download MOD APK</a>
 </div>
 
 <div class="apk-box">
     <h2>Traffic Rider Unlocked</h2>
     <p>Version: 2.0</p>
     <p>Size: ~140MB</p>
-    <a class="download-btn" href="https://files.catbox.moe/2961ru.apk">
-        Download MOD APK
-    </a>
+    <a class="download-btn" href="https://files.catbox.moe/2961ru.apk">Download MOD APK</a>
 </div>
 
 <div class="apk-box">
     <h2>Subway Princess Runner</h2>
     <p>Version: v8.4.5</p>
     <p>Size: ~280MB</p>
-    <a class="download-btn" href="https://files.catbox.moe/g9phyu.apk">
-        Download MOD APK
-    </a>
+    <a class="download-btn" href="https://files.catbox.moe/g9phyu.apk">Download MOD APK</a>
 </div>
 
 </div>
 </body>
-    </html>
+</html>
