@@ -6,311 +6,292 @@
 <title>Download Songs - Gamerz9211</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
-    text-align: center;
-    padding: 40px 20px;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#000;
+    padding:70px 20px 40px;
+    text-align:center;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+/* TOP BAR */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:10px 15px;
+    z-index:1000;
+}
+.menu-icon{
+    font-size:26px;
+    cursor:pointer;
+}
+.logo-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.yt-logo{
+    width:28px;
+    height:auto;
 }
 
-/* 🔍 Search bar */
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin: 20px auto;
+/* MENU */
+.menu{
+    display:none;
+    position:fixed;
+    top:55px;
+    left:0;
+    width:200px;
+    background:#fff;
+    border-right:1px solid #ccc;
+    z-index:999;
 }
-.search-container input {
-    width: 65%;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+.menu a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:#000;
+    border-bottom:1px solid #eee;
 }
-.search-icon, .mic-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* 🔤 Sort buttons */
-.sort-box {
-    margin-bottom: 20px;
-}
-.sort-box button {
-    padding: 8px 14px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    cursor: pointer;
-}
-.sort-box button:hover {
-    background: #0056b3;
+.menu a:hover{
+    background:#007bff;
+    color:#fff;
 }
 
-/* ❌ No result message */
-#noResult {
-    display: none;
-    color: red;
-    font-size: 18px;
-    margin-bottom: 20px;
+/* SEARCH */
+.search-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin:20px auto;
+    max-width:500px;
+}
+.search-container input{
+    flex:1;
+    padding:12px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+.search-container span{
+    font-size:22px;
+    cursor:pointer;
 }
 
-/* Song boxes */
-.song-box {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 400px;
-    border-radius: 10px;
+/* SORT */
+.sort-box{
+    margin-bottom:20px;
+}
+.sort-box button{
+    padding:8px 14px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    background:#007bff;
+    color:#fff;
+    cursor:pointer;
+}
+.sort-box button:hover{
+    background:#0056b3;
 }
 
-.song-box h2 {
-    margin-bottom: 10px;
+/* SONG BOX */
+.song-box{
+    border:1px solid #ddd;
+    padding:20px;
+    margin:20px auto;
+    max-width:420px;
+    border-radius:10px;
+}
+.song-box h2{
+    margin-bottom:10px;
+}
+.song-box a{
+    display:inline-block;
+    margin-top:10px;
+    background:#007bff;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:6px;
+    text-decoration:none;
 }
 
-a {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    background: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-/* Hamburger menu */
-.topbar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-.menu-btn {
-    font-size: 26px;
-    cursor: pointer;
-}
-.menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    width: 180px;
-    text-align: left;
-}
-.menu a {
-    display: block;
-    padding: 10px;
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid #eee;
-}
-.menu a:hover {
-    background: #f2f2f2;
+/* NO RESULT */
+#noResult{
+    display:none;
+    color:red;
+    margin:20px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ☰ Hamburger -->
+<!-- TOP BAR -->
 <div class="topbar">
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
     <div class="logo-title">
         <a href="https://www.youtube.com/@Gamerz9211" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
-                 class="yt-logo" alt="YouTube">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" class="yt-logo">
         </a>
         <h3>Gamerz9211</h3>
     </div>
 </div>
 
-<h1>Download Songs</h1>
-
-<!-- 🔍 Search bar -->
-<div class="search-container">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search songs..." onkeyup="searchItems()">
-    <span class="mic-icon" onclick="startVoice()">🎤</span>
+<!-- MENU -->
+<div class="menu" id="menu">
+    <a href="index.html">🏠 Home</a>
+    <a href="download-songs.html">🎵 Download Songs</a>
 </div>
 
-<!-- 🔤 Sort buttons -->
+<h1>Download Songs</h1>
+
+<!-- SEARCH -->
+<div class="search-container">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Search songs..." onkeyup="searchItems()">
+    <span onclick="startVoice()">🎤</span>
+</div>
+
+<!-- SORT -->
 <div class="sort-box">
-    <button onclick="sortAZ()">A – Z</button>
-    <button onclick="sortZA()">Z – A</button>
+    <button onclick="sortAZ()">A–Z</button>
+    <button onclick="sortZA()">Z–A</button>
 </div>
 
 <div id="noResult">
     <h3>No Result Found 😕</h3>
-    <p>We couldn't find the song you're looking for.</p>
-    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEqLuzqL1Qb5X6pQ5EttNbaEvmgiFFEZE8MpmI4X3utc3W9Q/viewform" target="_blank">message us</a> to request this song.</p>
+    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEqLuzqL1Qb5X6pQ5EttNbaEvmgiFFEZE8MpmI4X3utc3W9Q/viewform" target="_blank">message us</a></p>
 </div>
 
-<!-- ===== SONG LIST ===== -->
-<div class="song-box">
-    <h2>Masoom_Sharma_Mashup</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/ucxwn5.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/ucxwn5.mp3" download="Masoom_Sharma_mashup_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
+  <!-- ===== SONG LIST ===== -->  <div class="song-box">  
+    <h2>Masoom_Sharma_Mashup</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/ucxwn5.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/ucxwn5.mp3" download="Masoom_Sharma_mashup_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Block-Dhanda_Nyoliwala</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/474pg4.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/474pg4.mp3" download="Block_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Russian_Bandana</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/pbb7c2.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/pbb7c2.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Financer</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/8r7muu.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/8r7muu.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Madam_Ji</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/0pwvv2.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/0pwvv2.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Teri_Meri_Prem_Kahani</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/1nw2to.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/1nw2to.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Knife Brows</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/f6sqnj.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/f6sqnj.mp3" download="Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Illegal-Dhanda_Nyoliwala</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/6r6trq.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/6r6trq.mp3" download="Song_Gamerz9211.mp3">Click on three dots to download</a>  
+</div>  <div class="song-box">  
+    <h2>Gunday_Dore_p</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/zp2mkg.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/zp2mkg.mp3" download>Download Song</a>  
+</div>  <div class="song-box">  
+    <h2>Gun_Double</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/5mxv3o.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/5mxv3o.mp3" download>Download Song</a>  
+</div>  <div class="song-box">  
+    <h2>Aankh_Ye_Talibaani</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/t9b7bo.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/t9b7bo.mp3" download>Download Song</a>  
+</div>  <div class="song-box">  
+    <h2>Circle</h2>  
+    <audio controls>  
+        <source src="https://files.catbox.moe/8175wj.mp3" type="audio/mpeg">  
+    </audio>  
+    <a href="https://files.catbox.moe/8175wj.mp3" download>Download Song</a>  
+</div> 
 
-<div class="song-box">
-    <h2>Block-Dhanda_Nyoliwala</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/474pg4.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/474pg4.mp3" download="Block_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Russian_Bandana</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/pbb7c2.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/pbb7c2.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Financer</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/8r7muu.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/8r7muu.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Madam_Ji</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/0pwvv2.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/0pwvv2.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Teri_Meri_Prem_Kahani</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/1nw2to.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/1nw2to.mp3" download="New_Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Knife Brows</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/f6sqnj.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/f6sqnj.mp3" download="Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Illegal-Dhanda_Nyoliwala</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/6r6trq.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/6r6trq.mp3" download="Song_Gamerz9211.mp3">Click on three dots to download</a>
-</div>
-
-<div class="song-box">
-    <h2>Gunday_Dore_p</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/zp2mkg.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/zp2mkg.mp3" download>Download Song</a>
-</div>
-
-<div class="song-box">
-    <h2>Gun_Double</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/5mxv3o.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/5mxv3o.mp3" download>Download Song</a>
-</div>
-
-<div class="song-box">
-    <h2>Aankh_Ye_Talibaani</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/t9b7bo.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/t9b7bo.mp3" download>Download Song</a>
-</div>
-
-<div class="song-box">
-    <h2>Circle</h2>
-    <audio controls>
-        <source src="https://files.catbox.moe/8175wj.mp3" type="audio/mpeg">
-    </audio>
-    <a href="https://files.catbox.moe/8175wj.mp3" download>Download Song</a>
-</div>
-
-<!-- JS -->
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+function toggleMenu(){
+    const m=document.getElementById("menu");
+    m.style.display=(m.style.display==="block")?"none":"block";
 }
 
-/* 🔍 SEARCH */
-function searchItems() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let boxes = document.getElementsByClassName("song-box");
-    let found = false;
-
-    for (let i = 0; i < boxes.length; i++) {
-        let text = boxes[i].innerText.toLowerCase();
-        if (text.includes(input)) {
-            boxes[i].style.display = "block";
-            found = true;
-        } else {
-            boxes[i].style.display = "none";
+function searchItems(){
+    let input=document.getElementById("searchInput").value.toLowerCase();
+    let boxes=document.getElementsByClassName("song-box");
+    let found=false;
+    for(let b of boxes){
+        if(b.innerText.toLowerCase().includes(input)){
+            b.style.display="block";
+            found=true;
+        }else{
+            b.style.display="none";
         }
     }
-    document.getElementById("noResult").style.display = found ? "none" : "block";
+    document.getElementById("noResult").style.display=found?"none":"block";
 }
 
-/* 🔤 SORTING */
-function sortAZ() { sortSongs(true); }
-function sortZA() { sortSongs(false); }
+function sortAZ(){sortSongs(true);}
+function sortZA(){sortSongs(false);}
 
-function sortSongs(asc) {
-    let container = document.body;
-    let items = Array.from(document.getElementsByClassName("song-box"));
-    items.sort((a, b) => {
-        let x = a.innerText.toLowerCase();
-        let y = b.innerText.toLowerCase();
-        return asc ? x.localeCompare(y) : y.localeCompare(x);
+function sortSongs(asc){
+    let items=[...document.getElementsByClassName("song-box")];
+    items.sort((a,b)=>{
+        return asc
+        ? a.innerText.localeCompare(b.innerText)
+        : b.innerText.localeCompare(a.innerText);
     });
-    items.forEach(item => container.appendChild(item));
+    items.forEach(i=>document.body.appendChild(i));
 }
 
-/* 🎤 VOICE SEARCH */
-function startVoice() {
-    if (!('webkitSpeechRecognition' in window)) {
-        alert("Voice search not supported");
-        return;
-    }
-    let recognition = new webkitSpeechRecognition();
-    recognition.lang = "en-IN";
-    recognition.start();
-    recognition.onresult = function(event) {
-        document.getElementById("searchInput").value =
-            event.results[0][0].transcript;
+function startVoice(){
+    if(!window.webkitSpeechRecognition){alert("Voice not supported");return;}
+    let r=new webkitSpeechRecognition();
+    r.lang="en-IN";
+    r.start();
+    r.onresult=e=>{
+        searchInput.value=e.results[0][0].transcript;
         searchItems();
-    };
+    }
 }
 </script>
 
 </body>
-</html>
+    </html>
