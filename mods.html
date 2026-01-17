@@ -15,6 +15,28 @@ body {
     padding-top: 70px; /* Topbar height */
 }
 
+/* 📱 Floating App Download Button */
+.app-download-btn{
+    position:fixed;
+    bottom:90px;   /* message button ke upar */
+    right:20px;
+    width:55px;
+    height:55px;
+    background:#28a745;
+    color:#fff;
+    border-radius:50%;
+    font-size:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    z-index:9999;
+}
+.app-download-btn:hover{
+    background:#1e7e34;
+}
+
 /* TOP BAR */
 .topbar {
     position: fixed;
@@ -283,5 +305,10 @@ function sortAPK(asc){
 }
 </script>
 
+    <a href="https://files.catbox.moe/owvw0x.apk"
+   class="app-download-btn"
+   title="Download Gamerz9211 App">
+   ⬇️
+    </a>
 </body>
 </html>
